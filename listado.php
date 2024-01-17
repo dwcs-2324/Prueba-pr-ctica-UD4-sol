@@ -48,6 +48,8 @@ if (isset($_POST['comprar'])) {
     else{
         $_SESSION['cesta'][$datos->id] = $unidades;
     }
+
+    gestionar_cookie_familia();
 }
 ?>
 
