@@ -1,6 +1,6 @@
 <?php
 const FORM_ID_START = "form_id_add_";
-
+require_once "util.php";
 
 session_start();
 if (!isset($_SESSION['nombre'])) {
@@ -49,7 +49,7 @@ if (isset($_POST['comprar'])) {
         $_SESSION['cesta'][$datos->id] = $unidades;
     }
 
-    gestionar_cookie_familia();
+    gestionar_cookie_familia($datos->familia);
 }
 ?>
 

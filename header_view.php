@@ -2,7 +2,14 @@
 <div class="float float-right d-inline-flex mt-2">
 <i class="fa fa-shopping-cart mr-2 fa-2x"></i>
 <?php
-require_once 'util.php';
+function count_cart_elements()
+{
+    $contador = 0;
+    foreach ($_SESSION["cesta"] as $k => $value) {
+        $contador += $value;
+    }
+    return $contador;
+}
 
 
 if (isset($_SESSION['cesta'])) {

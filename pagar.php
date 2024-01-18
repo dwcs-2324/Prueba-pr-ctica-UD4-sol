@@ -1,4 +1,5 @@
 <?php
+require_once('util.php');
 session_start();
 if (!isset($_SESSION['nombre'])) {
     header('Location:login.php');
@@ -31,6 +32,8 @@ if (!isset($_SESSION['nombre'])) {
 <div class="container">
     <p class="font-weight-bold">Pedido realizado Correctamente.</p>
     <a href="listado.php" class="btn btn-info mt-3">Hacer otra Compra</a>
+
+   <?php mostrar_familias(); ?>
 </div>
 
 </body>
