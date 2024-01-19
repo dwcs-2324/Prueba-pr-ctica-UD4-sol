@@ -31,7 +31,7 @@ if (isset($_SESSION['cesta'])) {
     <title>Tema 4</title>
 </head>
 <body style="background: gray">
-<?php include_once 'header_view.php'?>
+<?php require_once 'header_view.php'?>
 <br>
 <h4 class="container text-center mt-4 font-weight-bold">Comprar Productos</h4>
 <div class="container mt-3">
