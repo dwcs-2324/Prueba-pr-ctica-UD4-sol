@@ -60,7 +60,7 @@ if (isset($_POST['comprar'])) {
 
 <body style="background: gray">
     <!-- Se ha eliminado la cabecera que se repetía en cesta.php y en listado.php por un nuevo fichero-->
-    <?php include_once 'header_view.php' ?>
+     <?php require_once 'header_view.php' ?>
     <br>
     <h4 class="container text-center mt-4 font-weight-bold">Tienda onLine</h4>
     <div class="container mt-3">
