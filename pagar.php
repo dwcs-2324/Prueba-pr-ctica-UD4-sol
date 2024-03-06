@@ -3,6 +3,7 @@ require_once('util.php');
 session_start();
 if (!isset($_SESSION['nombre'])) {
     header('Location:login.php');
+    vaciar_carrito();
 }
 ?>
 <!doctype html>
@@ -33,7 +34,11 @@ if (!isset($_SESSION['nombre'])) {
     <p class="font-weight-bold">Pedido realizado Correctamente.</p>
     <a href="listado.php" class="btn btn-info mt-3">Hacer otra Compra</a>
 
-   <?php mostrar_familias(); ?>
+   <?php mostrar_familias();
+ 
+   
+   
+   ?>
 </div>
 
 </body>

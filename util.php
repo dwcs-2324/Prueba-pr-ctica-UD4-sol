@@ -1,5 +1,6 @@
 <?php
 const DURATION_COOKIE_FAMILIAS = 60*60*24*30;
+const PAST_SECONDS = 60;
 
 
 function gestionar_cookie_familia(string $cod_familia)
@@ -30,4 +31,46 @@ function mostrar_familias() {
         }
         echo "</ul>";
     }
+}
+
+function vaciar_carrito(){
+    $_SESSION["cesta"] = [];
+}
+
+function cerrar_sesion(){
+session_start();
+  
+// unset($_SESSION['nombre']);
+// unset($_SESSION['cesta']);
+
+$_SESSION = array();
+
+//Eliminamos la cookie de sesión
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(
+        session_name(),
+        '',
+        time() - PAST_SECONDS,
+        $params["path"],
+        $params["domain"],
+        $params["secure"],
+        $params["httponly"]
+    );
+}
+
+    session_destroy();
+    
+//Eliminamos todas las cookies familias[0], familias[1], etc.
+
+foreach ($_COOKIE as $name => $value) {
+    if ($name !== session_name()) {
+        for ($i = 0; $i < count($value); $i++) {
+            $cookie_name = $name . "[$i]";
+            setcookie($cookie_name, '', time() - PAST_SECONDS);
+        }
+    }
+}
+
+
 }
