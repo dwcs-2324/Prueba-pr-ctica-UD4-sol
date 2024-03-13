@@ -61,15 +61,10 @@ if (ini_get("session.use_cookies")) {
 
     session_destroy();
     
-//Eliminamos todas las cookies familias[0], familias[1], etc.
 
-foreach ($_COOKIE as $name => $value) {
-    if ($name !== session_name()) {
-        for ($i = 0; $i < count($value); $i++) {
-            $cookie_name = $name . "[$i]";
-            setcookie($cookie_name, '', time() - PAST_SECONDS);
-        }
-    }
+
+if(isset($_COOKIE["micookie"])){
+    setcookie("micookie", '', time()-PAST_SECONDS);
 }
 
 
